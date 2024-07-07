@@ -1,0 +1,51 @@
+1) composer create-project laravel/laravel example-app --------------> new project open
+2) php artisan serve ------------------------------------------------> run korano
+3) php artisan breeze:install ---------------------------------------> log/reg.
+4) npm install & npm run dev ----------------------------------------> log/reg.
+5) php artisan migrate ----------------------------------------------> databse add
+6) php artisan make:controller UserController -----------------------> controller banano
+7) php artisan make:controller UserController --route ---------------> buld in controller
+
+8)Route::resource('students',StudentController::class);--------------> Route lekhar neyom
+
+-------------data view korano------------------------
+9)  use DB;----------------------------------------------------------> top e lekhte hobe file er
+    public function index()
+    {
+        $student=DB::table('students')->orderBy('roll','ASC')->get();
+        return view('student.index', compact('student'));  
+    }
+-------------data view korano end------------------------
+
+10) -------------------creat kora-----------------------
+     public function create(){
+        $classes=DB::table('classes')->get();
+        return view('student.create',compact('classes'));  
+    }
+    -------------------creat kora end-----------------------
+
+11) --------------------data store kora---------------------
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'class_id'=> 'required',
+            'name'=> 'required',
+            'phone'=> 'required',
+            'email'=> 'required',
+            'roll'=> 'required',
+        ]);
+
+        $data=array(
+            'class_id' =>$request->class_id,
+             'name' =>$request->name,
+            'email' =>$request->email,
+            'phone' =>$request->phone,
+            'roll' =>$request->roll,
+        );
+
+        DB::table('students')->insert($data);
+        return redirect()->back()->with('success','Successfully insert!');
+    }
+
+--------------------data store kora---------------------

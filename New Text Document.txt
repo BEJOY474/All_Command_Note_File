@@ -1,0 +1,7 @@
+   $table->id();
+          
+
+1) ASR
+2) IPA
+3) ML
+4) MLP

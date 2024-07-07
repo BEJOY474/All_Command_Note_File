@@ -1,0 +1,131 @@
+collback function ------>> () =>{}
+
+kono ekta project e npm ekbar initialization korle oi project e r init. korte hoy na
+
+---------------------------------------------------------------------------------
+
+Routing korar jonno age index.js file khulte hobe..tar por npm init -y lekhte hobe
+
+---------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------
+
+server jate bar bar restart kora na lage tai npm install nodemon lekhte hobe
+
+er jode nodemon install korar por o server restart na hoy tahile environment setup korte hobe...
+
+environment setup------> 
+1)localdisk(c:)
+2)Windows
+3)System32
+4)System32 te enter korar por oi link gula copy korte hobe
+5)environment --> path -->new --> past that copied link-->ok
+6) done 
+
+------------------------------------------------------------------------------------
+
+for hosting server------>heroku
+
+-----------------------------------------------------------------------------------
+
+Body-parser
+
+json neye kaj koror jonno body-parser use korte hobe & form theke data req
+ korar jonno age install korte hobe --------npm i body-parser
+
+
+// body-parser add kora hoise start
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+// body-parser add kora hoise end
+
+------------------------------------------------------------------------------------
+
+.env setup
+npm i dotenv lekhte hobe...
+
+code--->>require('dotenv').config(); const port = process.env.port || 3002
+-----------------------------------------------------------------------------------
+
+.gitignore er modhe .env r node_modules/ file gular name thakbe..privet file onno kew jate accesss korte na pare
+
+------------------------------------------------------------------------------------------
+
+CORS-> Cross Origin Resource Sharing
+cors er maddhone user jode differen port theke access korte chay tahole parbe
+npm i cors
+
+cont cors = require('cors')
+app.use(cors())
+
+-------------------------------------------------------------------------
+Unique id genarate --> npm i uuid
+const { uuid } = require('uuidv4');
+-----------------------------------------------------------------------
+
+update or delete korar jonno user er id params er maddhome nete hobe
+route.put("/:id", updateUser);--->route part
+const id = req.params.id; controller part
+---------------------------------------------------------------------
+
+controller part
+
+//get user
+exports.getUsers = (req, res)=>{
+    res.status(200).json({
+        users
+    })
+}
+
+//create user
+exports.createUser = (req, res)=>{
+   const userAdd ={
+     id : uuid(),
+     name : req.body.name,
+     dept : req.body.dept
+   } ;
+
+   users.push(userAdd);
+   res.status(201).json({
+        users
+   })
+}
+
+//Update user
+exports.updateUser = (req, res)=>{
+    const userId = req.params.id;
+    const {name , dept} = req.body;
+
+    users.filter((user)=>user.id === userId)
+    .map((selectedUser)=> {
+        selectedUser.name = name,
+        selectedUser.dept = dept
+    } );
+    res.status(202).json({
+        users
+    })
+ }
+
+ //Delete user
+exports.deleteUser = (req, res)=>{
+    const userId = req.params.id;
+    users = users.filter((user)=> user.id !== userId);
+    res.status(202).json({
+        users
+    })
+ }
+
+------------------------------------------------------------------------------
+image uploader er jonno multer use krte hobe
+
+----------------------------------------------------------------------------
+consol er output color korar jonno chalk use korte hobe
+npm i chalk@^4.1.2
+------------------------------------------------------------------------------
+
+express validation
+npm install --save express-validator
+
+------------------------------------------------------------------------------
+

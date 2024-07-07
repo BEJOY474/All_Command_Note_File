@@ -1,0 +1,718 @@
+1) npx create-expo-app StickerSmash --template blank  -----------------------------------------------> new project creat
+
+2) set REACT_NATIVE_PACKAGER_HOSTNAME=192.168.0.104 -------------------------> ip add. set kora
+
+3) npm start ---------------------------------------------------------------> project run kora
+
+----------check ip address-----------
+ncpa.cpl
+------------------------------------
+
+rnfe --------------------Functional component
+----------------------example-1------------------
+
+import { Text, View ,Image } from 'react-native';
+
+const pic = require('./assets/bijoy.jpg');
+const pic2 = require('./assets/uiu.jpg');
+
+export default function App() {
+  return (
+    <View style={{ flex: 1, backgroundColor: 'plum', padding: 37 ,alignItems:'center' }} >
+      <Text style={{ marginBottom:10, fontSize:20}}> Bejoy Munshi</Text>
+      <Image source={pic} style={{ width:300, height:300, borderRadius:5 }} />
+      <Text style={{ marginBottom:10 }}> <Text style={{ color: "#fff" }} >United</Text> <Text style={{ color: "red" }}> International</Text>  University</Text>
+      <Image source={pic2} style={{ width:300, height:300, borderRadius:5, marginTop:20 }} />
+    </View>
+  );
+}
+
+
+----------------------example-1 end------------------
+
+
+--------------------BackgroundImage-------------------
+
+import { Text, View ,Image, ImageBackground } from 'react-native';
+
+const pic = require('./assets/bijoy.jpg');
+const pic2 = require('./assets/uiu.jpg');
+
+export default function App() {
+  return (
+
+    <ImageBackground source={pic2} style={{ flex:1 }} >
+          <Text style={{ marginTop:40, textAlign:'center', fontSize:50, fontWeight:'bold' }}> <Text style={{ color: "#fff" }} >United</Text> <Text style={{ color: "red" }}> International</Text>  University</Text>
+    </ImageBackground>
+
+  );
+}
+
+
+
+--------------------BackgroundImage end-------------------
+
+-------------------ScrollView-------------------------
+
+import { Text, View, Image, ImageBackground, ScrollView } from 'react-native';
+
+const pic = require('./assets/bijoy.jpg');
+const pic2 = require('./assets/uiu.jpg');
+
+export default function App() {
+  return (
+ 
+      <View style={{ flex: 1, backgroundColor: 'plum', padding: 37, alignItems: 'center' }} >
+        <ScrollView>
+          <Text style={{ marginBottom: 10, fontSize: 20 }}> Bejoy Munshi</Text>
+          <Image source={pic} style={{ width: 300, height: 300, borderRadius: 5 }} />
+          <Text style={{ marginBottom: 10 }}> <Text style={{ color: "#fff" }} >United</Text> <Text style={{ color: "red" }}> International</Text>  University</Text>
+          <Image source={pic2} style={{ width: 300, height: 300, borderRadius: 5, marginTop: 20 }} />
+          <Text style={{ textAlign: 'justify' }} >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas tenetur inventore obcaecati libero maiores dolorem nulla saepe, qui facilis eaque quia, reprehenderit necessitatibus, natus facere. Maxime ex cumque delectus molestias.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas tenetur inventore obcaecati libero maiores dolorem nulla saepe, qui facilis eaque quia, reprehenderit necessitatibus, natus facere. Maxime ex cumque delectus molestias.</Text>
+        </ScrollView>
+      </View>
+  
+
+
+  );
+}
+
+-------------------ScrollView end-------------------------
+
+
+-------------------Button start---------------------------
+
+import { Text, View, Image, ImageBackground, ScrollView, Button } from 'react-native';
+
+const pic = require('./assets/bijoy.jpg');
+const pic2 = require('./assets/uiu.jpg');
+
+export default function App() {
+  return (
+ 
+      <View style={{ flex: 1, backgroundColor: 'plum', padding: 37 }} >
+        <ScrollView>
+
+          <Button  title="Click Me"  onPress={()=>{
+            console.log("Button on Press Bijoy");
+          }} />
+       
+       
+        </ScrollView>
+      </View>
+  
+
+
+  );
+}
+
+-------------------Button end---------------------------
+
+------------------Pressable----------------------------
+
+<Pressable onPress={()=>{console.log("Hii..Bijoy")}} >
+              <Image source={pic} style={{ width: 300, height: 300, borderRadius: 5 }} />
+</Pressable>
+
+------------------Pressable end----------------------------
+
+
+
+
+-------------------ScrollView-------------------------
+
+	<ScrollView> </ScrollView>
+
+-------------------ScrollView end-------------------------
+
+
+-------------------Model example ----------------------
+ const [isModelVisible , setIsModelVisible] = useState(false);
+  <View  style={{ flex:1 , backgroundColor:"plum" , padding:60 }} >
+          <Button title='Click Me' onPress={()=>setIsModelVisible(true)}
+           
+          />
+
+        <Modal visible={isModelVisible} 
+        onRequestClose={()=> setIsModelVisible(false)}
+        animationType='slide'/'fade'
+  	presentationStyle='pageSheet'
+        >
+            <View  style={{ flex:1 , backgroundColor:"lightblue" , padding:60 }} >
+                <Text>
+                  Model Component
+                </Text>
+
+                <Button title='Close' color="midnightblue" onPress={()=>setIsModelVisible(false)} />
+            </View>
+        </Modal>
+      </View>
+
+-------------------Model example end----------------------
+
+-----------------------statusbar-----------------------
+
+   <View  style={{ flex:1 , backgroundColor:"plum" , padding:60 }} >
+         <StatusBar backgroundColor="lightgreen" barStyle="light-contant" />
+         <Button title='Payment' onPress={()=>{console.log("Payment Done.")}} />
+      </View>
+
+-----------------------statusbar end-----------------------
+
+-------------------------ActivityIndicator----------------
+
+   <View style={{ flex: 1, backgroundColor: "plum", padding: 60 }}>
+            <Button title='payment' onPress={() => setLoading(!loading)} />
+            <ActivityIndicator
+                size="large"
+                color="midnightblue"
+                animating={loading}
+            />
+        </View>
+//loading dekhabe....
+-------------------------ActivityIndicator end----------------
+
+-------------------------Alert---------------------------------
+
+     <View style={{ flex: 1, backgroundColor: "plum", padding: 60 }}>
+            <Button title='payment' onPress={() =>{Alert.alert("Hello bijoy")}} />
+
+           <Button title='Payment Train' onPress={() =>
+        Alert.alert(
+          "Are you sure to payment?",
+          "",
+          [
+            {
+              text: "Cancel",
+              onPress: () => console.log("press cancel"),
+              style: "cancel"
+            },
+            {
+              text: "Ok",
+              onPress: () => console.log("press Ok")
+            }
+          ]
+        )
+      } />
+           
+        </View>
+
+-------------------------alert end -----------------------------
+
+
+--------------------------pass value exmple---------------------
+
+App.tsx
+--------
+    <View style={{ flex: 1, backgroundColor: "plum", padding: 60 }}>
+           
+         
+            <Gueest name='bijoy' />
+            <Gueest name='Irin Sultana Opy' />
+           
+        </View>
+
+Gueest.jsx
+-----------
+import React from 'react';
+import { View,Text } from 'react-native';
+
+const Gueest = ({name}) => {
+    return (
+        <View>
+            <Text>
+                Hello {name} 
+            </Text>
+        </View>
+    );
+};
+
+export default Gueest;
+
+--------------------------pass value exmple end---------------------
+
+-------------------------------StyleSheet----------------------------
+
+import { ActivityIndicator, Alert, Button, StyleSheet, Text, View  } from 'react-native';
+import Gueest from './components/Gueest';
+
+
+
+export default function App() {
+
+
+  return (
+
+        <View style={style.container}> 
+          <Text style={style.textStyle} >Hello UIU</Text>
+        </View>
+
+  );
+}
+
+
+const style = StyleSheet.create({
+  container:{flex: 1, backgroundColor: "red", padding: 60},
+  textStyle:{color:"white", fontSize:30, textAlign: 'center' }
+})
+
+
+-------------------------------styleSheet end--------------------------
+
+------------------------------multiple style---------------------------
+
+
+
+import { ActivityIndicator, Alert, Button, StyleSheet, Text, View  } from 'react-native';
+import Gueest from './components/Gueest';
+
+
+
+export default function App() {
+
+
+  return (
+
+        <View style={style.container} > 
+         
+            <View style={[style.box, style.uiu]} >
+                <Text style={style.textStyle} >Hello UIU</Text>
+            </View>
+
+            <View style={[style.box, style.bijoy]} >
+                <Text style={style.textStyle} >Hello Bijoy</Text>
+            </View>
+        </View>
+
+  );
+}
+
+
+const style = StyleSheet.create({
+  container : { flex:1 , backgroundColor:"#333" , padding:60, alignItems:'center' },
+  textStyle : {color: "#fff", fontSize:30, textAlign:'center'},
+    box:{width:150, height:150, padding:10,marginBottom:10},
+    uiu: {backgroundColor:"red"},
+    bijoy:{backgroundColor:"blue"}
+})
+
+
+-----------------------------multiple style end-----------------------------------
+
+
+-----------------------------style Interface--------------------------------------
+
+
+import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
+
+import { ActivityIndicator, Alert, Button, StyleSheet, Text, View  } from 'react-native';
+import Gueest from './components/Gueest';
+
+
+
+export default function App() {
+
+
+  return (
+
+        <View style={style.container} > 
+
+            <View style={style.darkMode} >
+                <Text style={style.darkModeText} >
+                    Styling Inharitance
+                </Text>
+            </View>
+
+            <View style={[style.box, style.uiu, style.boxShado]} >
+                <Text style={style.textStyle} >Hello UIU</Text>
+            </View>
+
+            <View style={[style.box, style.bijoy, style.boxShado]} >
+                <Text style={style.textStyle} >Hello Bijoy</Text>
+            </View>
+       
+        </View>
+
+  );
+}
+
+
+const style = StyleSheet.create({
+  container : { flex:1 , backgroundColor:"yellow" , padding:60, alignItems:'center' },
+  textStyle : {color: "#fff", fontSize:30, textAlign:'center'},
+    box:{width:250,
+        height:250,
+        padding:10,
+        marginBottom:10,
+        borderWidth:2,
+        borderColor:"#fff",
+        borderRadius: 5
+      },
+    uiu: {backgroundColor:"red"},
+    bijoy:{backgroundColor:"blue"},
+
+    boxShado:{
+      shadowColor:"#333333",
+      shadowOffset:{
+          width:6,
+          height:6
+      },
+      shadowOpacity:0.6,
+      shadowRadius:4
+    },
+
+    darkMode : {
+      backgroundColor:"black",
+      
+    },
+    darkModeText:{
+      color:"#fff",
+      padding:15,
+    }
+
+})
+
+-----------------------------style Interface end-------------------------------------- 
+
+------------------------------flexItem/flexSelf/etc-----------------------------------
+
+
+import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
+
+import { StyleSheet, Text, View  } from 'react-native';
+import Box1 from './components/Box1';
+
+
+export default function App() {
+
+
+  return (
+
+       <View style={style.container} >
+          <Box1 style={{ backgroundColor:"#8e9b00" , alignSelf: "flex-start" }} >Box-1</Box1>
+          <Box1 style={{ backgroundColor:"#b65b1f" , alignSelf:"flex-end" }} >Box-2</Box1>
+          <Box1 style={{ backgroundColor:"#1c4c56" , alignSelf:"center" }} >Box-3</Box1>
+          <Box1 style={{ backgroundColor:"#ab9156" , alignSelf: "flex-start" }} >Box-4</Box1>
+          {/* <Box1 style={{ backgroundColor:"#6b0803" }} >Box-5</Box1>
+          <Box1 style={{ backgroundColor:"#1c4c56" }} >Box-6</Box1>
+          <Box1 style={{ backgroundColor:"#b95f21" }} >Box-7</Box1> */}
+       </View>
+
+  );
+}
+
+const style = StyleSheet.create({
+    container:{
+        flex:1,
+        // flexDirection: "column-reverse",
+        // flexDirection : "row",
+       // flexDirection : "row-reverse",
+      //  justifyContent : "flex-end",
+      // justifyContent : "space-between",
+      //justifyContent : "center",
+        marginTop:0,
+        borderWidth:6,
+        borderColor:"red",
+    }
+})
+
+------------------------------flexItem/flexSelf/etc end-----------------------------------
+
+---------------------------------inputSequrity-----------------------------------------
+
+  <Text style={styles.titleTxt} >{inputTitle}</Text>
+        <TextInput style={styles.inputbox}
+         placeholder={inputTitle} 
+         placeholderTextColor="#fff"
+         autoCorrect={false}
+         autoComplete={autoComplete}
+         keyboardType={keyboardType}
+         secureTextEntry={secureTextEntry}
+
+        />
+props pass korte hobe parrent theke
+     <View style={styles.inputContainer}>
+                        <InpurForm inputTitle="Name" />
+                        <InpurForm inputTitle="Email"
+                         keyboardType='email-address'
+                         autoComplete='email' 
+                         />
+                        <InpurForm inputTitle="Password" secureTextEntry={true}
+                        autoComplete='password'
+                        />
+                    </View>
+---------------------------------inputSequrity end-----------------------------------------
+
+-----------------------------------server setup--------------------------------------
+
+first move server folder ---> npm init 
+			 ---> npm install express mongoose morgan colors dotenv bcrypt cors
+
+-----------------------------------server setup end--------------------------------------
+
+----------------------------------server.js-------------------------------
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const colors = require('colors');
+const morgan = require('morgan');
+
+//DOTENV
+dotenv.config();
+
+//REST API OBJECT
+const app = express();
+
+//MIDDLEWARE
+app.use(cors());
+app.use(express.json());
+app.use(morgan('dev'));
+
+//ROUTE
+app.get("/", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "Welcome  bijoiy UIU",
+    });
+});
+
+//PORT
+const PORT = process.env.PORT || 8080;
+
+//LISTEN
+app.listen(PORT, () => {
+    console.log(`Server Running on ${PORT}`.bgBlue.bgGreen);
+});----------------------------------server.js end-------------------------------
+
+-----------------------server run--------------------------------------
+npm run server---> command
+-----------------------server run end--------------------------------------
+
+
+
+
+
+
+
+for styling tewling -------> nativeWind website
+icons-----------------------> react-native-heroicons
+loaing dekhanor jonno mpm er library---------> react-native-progress
+React Native Async Storage-------------------> React Native Async Storage
+
+
+
+
+
+
+----------------------------------------Weather App Start------------------------------------------
+
+import React, { useCallback, useState } from 'react'
+import { View, Text, StyleSheet, Image, SafeAreaView, TextInput, TouchableOpacity, ScrollView } from 'react-native'
+import { StatusBar } from 'expo-status-bar'
+import * as Icons from "react-native-heroicons/solid";
+import {debounce} from 'lodash';
+import { fachtWatherForcast, fatchLocation } from '../api/weather';
+
+const bgImage = require('../assets/bg.jpg');
+const bgImage2 = require('../assets/p3.png');
+const wind = require('../assets/wind.png');
+const water = require('../assets/water.png');
+const sun = require('../assets/sun.png');
+const rain = require('../assets/rain.png');
+
+const HomeScreen = () => {
+  const [showSearch, toggleSearch] = useState(false);
+  const [location, setLocation] = useState([]);
+
+  const handelLocation = (loc)=>{
+    console.log('Location : ', loc );
+    setLocation([]);
+    fachtWatherForcast({
+      cityName: loc.name,
+      days:'7'
+    }).then(data=>{
+      console.log('Got forcast : ', data);
+    })
+  }
+
+  const handleSearch = value=>{
+    if (value.length>2) {
+      fatchLocation({cityName:value}).then(data=>{
+        setLocation(data);
+      })
+    }
+   
+  }
+
+  const handelTextBounce = useCallback(debounce(handleSearch , 1200), [] );
+  return (
+    
+     <View className="relative" >
+      <StatusBar style='light' />
+      
+        <Image source={bgImage} className="absolute w-full" ></Image>
+    
+        <SafeAreaView className="" >
+          <View style={{ width:'100%', marginTop:10 }} >
+              <View className="flex-row justify-end items-center rounded-full ml-5 mr-5" 
+                  style={{ backgroundColor: showSearch? 'gray' : 'transparent'  }}>
+                  {
+                    showSearch?(
+                      <TextInput
+                       onChangeText={handelTextBounce}
+                      placeholder="Search City"
+                      placeholderTextColor="lightgray"
+                      className="h-11 pl-6 pb-2 flex-1 text-base text-white"
+                    />
+                    ):null
+                  }
+                  
+                
+                <TouchableOpacity onPress={() => toggleSearch(!showSearch) }
+                  style={{ backgroundColor: '#333' }}
+                  className="p-3 m-1 rounded-full " >
+                  <Icons.MagnifyingGlassMinusIcon color="#fff" />
+                </TouchableOpacity>
+              </View>
+
+           
+
+          </View>
+
+          {/* forcasr design */}
+
+          <View style={styles.forcast}>
+            {/* location */}
+            <Text style={styles.textStyle} >
+              London <Text style={{ fontSize:19 }} className="font-semibold text-gray-300" >United, Kingdom</Text>
+            </Text>
+
+            <View className="flex-row justify-center" >
+              <Image style={{ height:180, width:180 }} source={bgImage2} className="w-52 h-52 mt-5" ></Image>
+            </View>
+
+            {/* degree calculation */}
+              <View className="space-y-2 mt-3"  >
+                <Text className="text-center font-bold text-white text-6xl" >
+                  23&#176;
+                </Text>
+
+                <Text className="text-white text-center text-xl tracking-widest " >
+                  Preaty Cloudy</Text>
+                
+              </View>
+
+              <View className="flex-row justify-between  mt-5 w-full pr-8 ml-8" >
+                  <View className="flex-row text-center space-x-2" >
+                    <Image source={wind} className="w-6 h-6" ></Image>
+                    <Text className="text-white font-semibold text-base" >22km</Text>
+                  </View>
+
+                  <View className="flex-row text-center space-x-2" >
+                    <Image source={water} className="w-6 h-6" ></Image>
+                    <Text className="text-white font-semibold text-base" >20%</Text>
+                  </View>
+
+                  <View className="flex-row text-center space-x-2" >
+                    <Image source={sun} className="w-6 h-6" ></Image>
+                    <Text className="text-white font-semibold text-base" >8.30 AM</Text>
+                  </View>      
+              </View>
+
+              {/* forcust next days */} 
+
+              <View className="mb-2  w-full mt-6 pr-8 ml-8" >
+                <View className="flex-row space-x-2  " >
+                  <Icons.CalendarDaysIcon size="22" color="white" />
+                  <Text className="text-white text-left text-base" >Daily Forcast</Text>
+                </View>
+              </View>
+
+              <ScrollView 
+                  horizontal
+                  contentContainerStyle={{ paddingHorizontal:15}}
+                  showsHorizontalScrollIndicator={false}
+                
+                  >
+                    <View style={{ width:120, height:120}} className="flex justify-center items-center p-2 rounded-3xl py-3 space-y-1 mr-4 bg-gray-400" >
+                      <Image source={rain} className="w-11 h-11" ></Image>
+                      <Text className="text-white" >Monday</Text>
+                      <Text className="text-white font-semibold text-xl" >19&#176;</Text>
+                    </View>
+
+                    <View style={{ width:120, height:120}} className="flex justify-center items-center p-2 rounded-3xl py-3 space-y-1 mr-4 bg-gray-400" >
+                      <Image source={rain} className="w-11 h-11" ></Image>
+                      <Text className="text-white" >Tuesday</Text>
+                      <Text className="text-white font-semibold text-xl" >19&#176;</Text>
+                    </View>
+
+                    <View style={{ width:120, height:120}} className="flex justify-center items-center p-2 rounded-3xl py-3 space-y-1 mr-4 bg-gray-400" >
+                      <Image source={rain} className="w-11 h-11" ></Image>
+                      <Text className="text-white" >Wednessday</Text>
+                      <Text className="text-white font-semibold text-xl" >19&#176;</Text>
+                    </View>
+
+                    <View style={{ width:120, height:120}} className="flex justify-center items-center p-2 rounded-3xl py-3 space-y-1 mr-4 bg-gray-400" >
+                      <Image source={rain} className="w-11 h-11" ></Image>
+                      <Text className="text-white" >Thursday</Text>
+                      <Text className="text-white font-semibold text-xl" >19&#176;</Text>
+                    </View>
+
+                    <View style={{ width:120, height:120}} className="flex justify-center items-center p-2 rounded-3xl py-3 space-y-1 mr-4 bg-gray-400" >
+                      <Image source={rain} className="w-11 h-11" ></Image>
+                      <Text className="text-white" >Friday</Text>
+                      <Text className="text-white font-semibold text-xl" >19&#176;</Text>
+                    </View>
+
+                    <View style={{ width:120, height:120}} className="flex justify-center items-center p-2 rounded-3xl py-3 space-y-1 mr-4 bg-gray-400" >
+                      <Image source={rain} className="w-11 h-11" ></Image>
+                      <Text className="text-white" >Saturday</Text>
+                      <Text className="text-white font-semibold text-xl" >19&#176;</Text>
+                    </View>
+                    <View style={{ width:120, height:120}} className="flex justify-center items-center p-2 rounded-3xl py-3 space-y-1 mr-4 bg-gray-400" >
+                      <Image source={rain} className="w-11 h-11" ></Image>
+                      <Text className="text-white" >Sunday</Text>
+                      <Text className="text-white font-semibold text-xl" >19&#176;</Text>
+                    </View>
+              </ScrollView>
+          </View>
+
+        </SafeAreaView>
+
+      
+
+        
+     </View>
+
+     
+     
+  
+  )
+}
+
+const styles = StyleSheet.create({
+    forcast:{
+    
+      justifyContent: 'center',
+      alignItems: 'center' , 
+       height:"100%"
+    },
+
+    textStyle:{
+      color: 'white',
+      position:'relative', 
+      textAlign: 'center', 
+      fontSize: 24, 
+      fontWeight: 'bold',
+      marginTop:15
+    }
+})
+
+export default HomeScreen
+
+
+
+---------------------------------------- Weather App End --------------------------------------
+
